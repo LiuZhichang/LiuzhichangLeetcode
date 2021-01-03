@@ -1,4 +1,5 @@
 #pragma once
+#include <initializer_list>
 #include <vector>
 #include <iostream>
 using std::vector;
@@ -18,6 +19,7 @@ class List {
     ptr end;
     std::size_t len;
     List(const vector<int>& v);
+    List(std::initializer_list<int> it);
     List(vector<int>&& v);
     void operator = (std::vector<int>& vector) {
 
@@ -71,4 +73,16 @@ void ListPrint(ListNode* node) {
         node = node->next;
     }
     std::cout << std::endl;
+}
+
+List::List(std::initializer_list<int> it) {
+    begin = new type();
+    end = begin;
+    len = 0;
+    for(auto item : it) {
+        ++ len;
+        auto node = new type(item);
+        end->next = node;
+        end = node;
+    }
 }
